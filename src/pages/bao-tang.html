@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảo Tàng Hồ Chí Minh</title>
+    <meta name="description"
+        content="Hệ thống Bảo tàng Hồ Chí Minh — nơi lưu giữ và tôn vinh di sản của Chủ tịch Hồ Chí Minh trên khắp Việt Nam.">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/src/assets/css/style.css">
+    <link rel="stylesheet" href="/src/assets/css/pages.css">
+    <link rel="shortcut icon" href="/src/assets/img/quoc-huy.svg" type="image/x-icon">
+    <script src="/src/assets/js/main.js"></script>
+    <script src="/src/assets/js/pages-data.js"></script>
+</head>
+
+<body class="pg-page">
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- ========== HERO BANNER ========== -->
+    <section class="pg-hero" style="margin-top: 60px;">
+        <div class="pg-hero-bg"
+            style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNhxWbFRRnEGeJwJ0GYNm92ZrnyXvByiGmYA&s');">
+        </div>
+        <div class="pg-hero-content">
+            <div class="pg-hero-label">Hệ thống bảo tàng</div>
+            <h1 class="pg-hero-title">Bảo Tàng Hồ Chí Minh</h1>
+            <p class="pg-hero-subtitle">
+                "Nơi lưu giữ những hiện vật thiêng liêng, kể câu chuyện về cuộc đời vĩ đại của Người."
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <!-- Breadcrumb -->
+        <div class="pg-breadcrumb mb-8">
+            <a href="/index.html">Trang chủ</a>
+            <span>/</span>
+            <span>Bảo tàng</span>
+        </div>
+
+        <h2 class="pg-section-title pg-animate">Hệ Thống Bảo Tàng Trên Cả Nước</h2>
+        <div class="pg-section-line pg-animate"></div>
+
+        <!-- Info Stats -->
+        <div class="flex flex-wrap justify-center gap-8 mb-16 pg-animate">
+            <div class="text-center px-8 py-6 rounded-lg"
+                style="background: rgba(114,7,15,0.06); border: 1px solid var(--pg-border);">
+                <div
+                    style="font-family: var(--pg-font-title); font-size: 36px; font-weight: 700; color: var(--pg-red-dark);">
+                    4+</div>
+                <div
+                    style="font-family: var(--pg-font-ui); font-size: 12px; color: var(--pg-text-muted); letter-spacing: 1px; text-transform: uppercase;">
+                    Bảo tàng</div>
+            </div>
+            <div class="text-center px-8 py-6 rounded-lg"
+                style="background: rgba(114,7,15,0.06); border: 1px solid var(--pg-border);">
+                <div
+                    style="font-family: var(--pg-font-title); font-size: 36px; font-weight: 700; color: var(--pg-red-dark);">
+                    13.000+</div>
+                <div
+                    style="font-family: var(--pg-font-ui); font-size: 12px; color: var(--pg-text-muted); letter-spacing: 1px; text-transform: uppercase;">
+                    Hiện vật</div>
+            </div>
+            <div class="text-center px-8 py-6 rounded-lg"
+                style="background: rgba(114,7,15,0.06); border: 1px solid var(--pg-border);">
+                <div
+                    style="font-family: var(--pg-font-title); font-size: 36px; font-weight: 700; color: var(--pg-red-dark);">
+                    1956</div>
+                <div
+                    style="font-family: var(--pg-font-ui); font-size: 12px; color: var(--pg-text-muted); letter-spacing: 1px; text-transform: uppercase;">
+                    Năm thành lập đầu tiên</div>
+            </div>
+        </div>
+
+        <!-- Bao Tang Content -->
+        <div id="baotang-container" class="space-y-16">
+            <!-- Rendered by JS -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Back to Top -->
+    <button class="pg-back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('baotang-container');
+
+            baoTangData.forEach((item, idx) => {
+                const isReversed = idx % 2 !== 0;
+                const section = document.createElement('div');
+                section.className = 'pg-animate';
+                section.style.transitionDelay = `${idx * 0.1}s`;
+                section.innerHTML = `
+                    <div class="overflow-hidden rounded-lg" style="background: #fff; border: 1px solid var(--pg-border); box-shadow: var(--pg-shadow);">
+                        <div class="flex flex-col md:flex-row ${isReversed ? 'md:flex-row-reverse' : ''}">
+                            <!-- Image -->
+                            <div class="w-full md:w-1/2">
+                                <div class="relative overflow-hidden" style="height: 380px;">
+                                    <img src="${item.hinhAnh}" alt="${item.tenBaoTang}" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
+                                    <div class="absolute inset-0" style="background: linear-gradient(0deg, rgba(44,24,16,0.3) 0%, transparent 50%);"></div>
+                                    <div class="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded" style="background: rgba(44,24,16,0.7); backdrop-filter: blur(4px);">
+                                        <span style="font-family: var(--pg-font-ui); font-size: 11px; color: var(--pg-gold); letter-spacing: 1px;">${item.namThanhLap}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Content -->
+                            <div class="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
+                                <h3 style="font-family: var(--pg-font-title); font-size: 26px; font-weight: 700; color: var(--pg-brown-dark); margin-bottom: 8px; line-height: 1.3;">
+                                    ${item.tenBaoTang}
+                                </h3>
+                                <div class="flex items-center gap-2 mb-4" style="font-family: var(--pg-font-ui); font-size: 13px; color: var(--pg-text-muted);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    ${item.diaDiem}
+                                </div>
+                                <p style="font-family: var(--pg-font-body); font-size: 18px; color: var(--pg-text-body); line-height: 1.8; margin-bottom: 16px;">
+                                    ${item.moTa}
+                                </p>
+                                <div class="pg-card-detail" id="detail-bt-${item.id}">
+                                    ${item.chiTiet}
+                                </div>
+                                <div class="flex items-center gap-6 mt-4">
+                                    <div class="flex items-center gap-2" style="font-family: var(--pg-font-ui); font-size: 12px; color: var(--pg-text-muted);">
+                                        <span style="color: var(--pg-gold);">◆</span> Diện tích: ${item.dienTich}
+                                    </div>
+                                    <button class="pg-card-btn" onclick="togglePgDetail('detail-bt-${item.id}', this)">
+                                        Đọc thêm
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(section);
+            });
+
+            setupScrollAnimations();
+            setupBackToTop();
+        });
+
+        function togglePgDetail(id, btn) {
+            const el = document.getElementById(id);
+            el.classList.toggle('show');
+            btn.classList.toggle('expanded');
+            btn.firstChild.textContent = el.classList.contains('show') ? 'Thu gọn ' : 'Đọc thêm ';
+        }
+
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.pg-animate').forEach(el => observer.observe(el));
+        }
+
+        function setupBackToTop() {
+            const btn = document.getElementById('backTop');
+            window.addEventListener('scroll', () => { btn.classList.toggle('show', window.scrollY > 400); });
+        }
+    </script>
+</body>
+
+</html>

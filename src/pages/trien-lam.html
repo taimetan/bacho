@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triển Lãm — Chủ tịch Hồ Chí Minh</title>
+    <meta name="description"
+        content="Các triển lãm chuyên đề về cuộc đời, sự nghiệp và di sản của Chủ tịch Hồ Chí Minh tại các bảo tàng trên cả nước.">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/src/assets/css/pages.css">
+    <link rel="stylesheet" href="/src/assets/css/style.css">
+    <link rel="shortcut icon" href="/src/assets/img/quoc-huy.svg" type="image/x-icon">
+    <script src="/src/assets/js/main.js"></script>
+    <script src="/src/assets/js/pages-data.js"></script>
+</head>
+
+<body class="pg-page">
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- ========== HERO BANNER ========== -->
+    <section class="pg-hero" style="margin-top: 60px;">
+        <div class="pg-hero-bg"
+            style="background-image: url('https://file3.qdnd.vn/data/images/0/2025/05/10/upload_2049/bac-ho.jpg?dpi=150&quality=100&w=870');">
+        </div>
+        <div class="pg-hero-content">
+            <div class="pg-hero-label">Triển lãm & sự kiện</div>
+            <h1 class="pg-hero-title">Triển Lãm Chuyên Đề</h1>
+            <p class="pg-hero-subtitle">
+                "Mỗi triển lãm là một hành trình kể lại câu chuyện bất tử về Người — bằng hiện vật, hình ảnh và cảm
+                xúc."
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <!-- Breadcrumb -->
+        <div class="pg-breadcrumb mb-8">
+            <a href="/index.html">Trang chủ</a>
+            <span>/</span>
+            <span>Triển lãm</span>
+        </div>
+
+        <h2 class="pg-section-title pg-animate">Các Triển Lãm Tiêu Biểu</h2>
+        <div class="pg-section-line pg-animate"></div>
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12 pg-animate" id="filter-tabs">
+            <button class="tl-filter-btn active" data-filter="all" onclick="filterExhibitions('all', this)">Tất
+                cả</button>
+            <button class="tl-filter-btn" data-filter="Triển lãm thường trực"
+                onclick="filterExhibitions('Triển lãm thường trực', this)">Thường trực</button>
+            <button class="tl-filter-btn" data-filter="Triển lãm chuyên đề"
+                onclick="filterExhibitions('Triển lãm chuyên đề', this)">Chuyên đề</button>
+            <button class="tl-filter-btn" data-filter="Triển lãm lưu động"
+                onclick="filterExhibitions('Triển lãm lưu động', this)">Lưu động</button>
+            <button class="tl-filter-btn" data-filter="Triển lãm quốc tế"
+                onclick="filterExhibitions('Triển lãm quốc tế', this)">Quốc tế</button>
+        </div>
+
+        <!-- Exhibition Grid -->
+        <div class="pg-grid pg-grid-3" id="trien-lam-grid">
+            <!-- Rendered by JS -->
+        </div>
+
+        <!-- CTA Section -->
+        <div class="mt-20 pg-animate">
+            <div class="rounded-lg overflow-hidden text-center p-12 md:p-16"
+                style="background: linear-gradient(135deg, var(--pg-brown-dark) 0%, #4A3728 100%); border: 1px solid var(--pg-border);">
+                <div class="text-4xl mb-4">🏛️</div>
+                <h3
+                    style="font-family: var(--pg-font-title); font-size: 28px; color: var(--pg-cream); font-weight: 700; margin-bottom: 12px;">
+                    Ghé thăm Bảo tàng Hồ Chí Minh
+                </h3>
+                <p
+                    style="font-family: var(--pg-font-body); font-size: 18px; color: rgba(245,230,200,0.7); max-width: 600px; margin: 0 auto 24px; line-height: 1.7;">
+                    Hãy đến trực tiếp để cảm nhận không gian lịch sử thiêng liêng — nơi mỗi hiện vật đều kể một câu
+                    chuyện sống động về Người.
+                </p>
+                <a href="/src/pages/bao-tang.html"
+                    class="inline-block px-8 py-3 text-white font-semibold transition-all duration-300 hover:opacity-90"
+                    style="background: var(--pg-red-dark); font-family: var(--pg-font-ui); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none;">
+                    Xem Bảo Tàng →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Back to Top -->
+    <button class="pg-back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <style>
+        .tl-filter-btn {
+            font-family: var(--pg-font-ui);
+            font-size: 12px;
+            letter-spacing: 1px;
+            padding: 8px 20px;
+            border: 1px solid var(--pg-border);
+            background: transparent;
+            color: var(--pg-text-muted);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .tl-filter-btn:hover {
+            border-color: var(--pg-gold);
+            color: var(--pg-brown-dark);
+        }
+
+        .tl-filter-btn.active {
+            background: var(--pg-red-dark);
+            color: #fff;
+            border-color: var(--pg-red-dark);
+        }
+
+        .tl-card-hidden {
+            display: none !important;
+        }
+    </style>
+
+    <script>
+        let allCards = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('trien-lam-grid');
+
+            trienLamData.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'pg-card pg-animate';
+                card.dataset.type = item.loaiHinh;
+                card.style.transitionDelay = `${idx * 0.1}s`;
+                card.innerHTML = `
+                    <div class="pg-card-img-wrapper">
+                        <img src="${item.hinhAnh}" alt="${item.tieuDe}" loading="lazy" />
+                        <div class="pg-card-overlay"></div>
+                        <span class="pg-card-badge">${item.loaiHinh}</span>
+                    </div>
+                    <div class="pg-card-body">
+                        <h3 class="pg-card-title">${item.tieuDe}</h3>
+                        <div class="pg-card-meta">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            ${item.diaDiem}
+                        </div>
+                        <div class="mb-2" style="font-family: var(--pg-font-ui); font-size: 12px; color: var(--pg-gold);">
+                            ⏰ ${item.thoiGian}
+                        </div>
+                        <p class="pg-card-desc">${item.moTa}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+                allCards.push(card);
+            });
+
+            setupScrollAnimations();
+            setupBackToTop();
+        });
+
+        function filterExhibitions(type, btn) {
+            // Update buttons
+            document.querySelectorAll('.tl-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Filter cards
+            allCards.forEach(card => {
+                if (type === 'all' || card.dataset.type === type) {
+                    card.classList.remove('tl-card-hidden');
+                } else {
+                    card.classList.add('tl-card-hidden');
+                }
+            });
+        }
+
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.pg-animate').forEach(el => observer.observe(el));
+        }
+
+        function setupBackToTop() {
+            const btn = document.getElementById('backTop');
+            window.addEventListener('scroll', () => { btn.classList.toggle('show', window.scrollY > 400); });
+        }
+    </script>
+</body>
+
+</html>

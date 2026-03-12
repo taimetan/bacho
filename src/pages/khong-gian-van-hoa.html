@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Không Gian Văn Hóa — Chủ tịch Hồ Chí Minh</title>
+    <meta name="description"
+        content="Khám phá các không gian văn hóa, di tích lịch sử gắn liền với cuộc đời Chủ tịch Hồ Chí Minh trên khắp mọi miền đất nước.">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/src/assets/css/style.css">
+    <link rel="stylesheet" href="/src/assets/css/pages.css">
+    <link rel="shortcut icon" href="/src/assets/img/quoc-huy.svg" type="image/x-icon">
+    <script src="/src/assets/js/main.js"></script>
+    <script src="/src/assets/js/pages-data.js"></script>
+</head>
+
+<body class="pg-page">
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- ========== HERO BANNER ========== -->
+    <section class="pg-hero" style="margin-top: 60px;">
+        <div class="pg-hero-bg"
+            style="background-image: url('https://tphcm.cdnchinhphu.vn/zoom/700_438/334895287454388224/2022/11/10/di-san-04-4861-1668045068143879477981-0-0-750-1200-crop-16680450798271472920929.jpg');">
+        </div>
+        <div class="pg-hero-content">
+            <div class="pg-hero-label">Di tích & không gian</div>
+            <h1 class="pg-hero-title">Không Gian Văn Hóa</h1>
+            <p class="pg-hero-subtitle">
+                "Đi khắp non sông, mỗi nơi đều lưu dấu chân Người — mỗi không gian đều mang hơi thở lịch sử."
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <!-- Breadcrumb -->
+        <div class="pg-breadcrumb mb-8">
+            <a href="/index.html">Trang chủ</a>
+            <span>/</span>
+            <span>Không gian văn hóa</span>
+        </div>
+
+        <!-- Section Title -->
+        <h2 class="pg-section-title pg-animate">Những Địa Danh Lịch Sử</h2>
+        <div class="pg-section-line pg-animate"></div>
+
+        <p class="text-center pg-animate mb-12"
+            style="font-family: var(--pg-font-body); font-size: 20px; color: var(--pg-text-body); max-width: 700px; margin: 0 auto 48px; line-height: 1.8;">
+            Từ làng quê Kim Liên đến Bến Nhà Rồng, từ hang Pác Bó đến Quảng trường Ba Đình — mỗi nơi đều ghi lại
+            những dấu ấn thiêng liêng trong cuộc đời Chủ tịch Hồ Chí Minh.
+        </p>
+
+        <!-- Map-like Grid Display -->
+        <div id="kgvh-container" class="space-y-12">
+            <!-- Rendered by JS -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Back to Top -->
+    <button class="pg-back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('kgvh-container');
+
+            // First: featured card (full width)
+            const first = khongGianVanHoaData[0];
+            const featDiv = document.createElement('div');
+            featDiv.className = 'pg-featured pg-animate';
+            featDiv.innerHTML = `
+                <div class="pg-featured-img">
+                    <img src="${first.hinhAnh}" alt="${first.tieuDe}" loading="lazy" />
+                </div>
+                <div class="pg-featured-content">
+                    <div class="pg-featured-label">${first.icon} ${first.loaiHinh}</div>
+                    <h3 class="pg-featured-title">${first.tieuDe}</h3>
+                    <p class="flex items-center gap-2 mb-4" style="font-family: var(--pg-font-ui); font-size: 13px; color: var(--pg-gold);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        ${first.diaDiem}
+                    </p>
+                    <p class="pg-featured-desc">${first.moTa}</p>
+                </div>
+            `;
+            container.appendChild(featDiv);
+
+            // Remaining: card grid
+            const grid = document.createElement('div');
+            grid.className = 'pg-grid pg-grid-3';
+
+            khongGianVanHoaData.slice(1).forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'pg-card pg-animate';
+                card.style.transitionDelay = `${idx * 0.1}s`;
+                card.innerHTML = `
+                    <div class="pg-card-img-wrapper">
+                        <img src="${item.hinhAnh}" alt="${item.tieuDe}" loading="lazy" />
+                        <div class="pg-card-overlay"></div>
+                        <span class="pg-card-badge">${item.loaiHinh}</span>
+                    </div>
+                    <div class="pg-card-body">
+                        <h3 class="pg-card-title">${item.tieuDe}</h3>
+                        <div class="pg-card-meta">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            ${item.diaDiem}
+                        </div>
+                        <p class="pg-card-desc">${item.moTa}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            container.appendChild(grid);
+
+            setupScrollAnimations();
+            setupBackToTop();
+        });
+
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.pg-animate').forEach(el => observer.observe(el));
+        }
+
+        function setupBackToTop() {
+            const btn = document.getElementById('backTop');
+            window.addEventListener('scroll', () => { btn.classList.toggle('show', window.scrollY > 400); });
+        }
+    </script>
+</body>
+
+</html>

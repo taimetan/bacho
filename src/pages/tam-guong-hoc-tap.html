@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tấm Gương Học Tập — Chủ tịch Hồ Chí Minh</title>
+    <meta name="description"
+        content="Học tập và làm theo tấm gương đạo đức Hồ Chí Minh — tự học, giản dị, yêu thương, kiên trì, chính trực.">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/src/assets/css/style.css">
+    <link rel="stylesheet" href="/src/assets/css/pages.css">
+    <link rel="shortcut icon" href="/src/assets/img/quoc-huy.svg" type="image/x-icon">
+    <script src="/src/assets/js/main.js"></script>
+    <script src="/src/assets/js/pages-data.js"></script>
+</head>
+
+<body class="pg-page">
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- ========== HERO BANNER ========== -->
+    <section class="pg-hero" style="margin-top: 60px;">
+        <div class="pg-hero-bg"
+            style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwukimcF93oouk3UxnuH9tx_0vy5e5HQhMMA&s');">
+        </div>
+        <div class="pg-hero-content">
+            <div class="pg-hero-label">Đạo đức Hồ Chí Minh</div>
+            <h1 class="pg-hero-title">Tấm Gương Học Tập</h1>
+            <p class="pg-hero-subtitle">
+                "Một tấm gương sống còn có giá trị hơn một trăm bài diễn văn tuyên truyền."
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <!-- Breadcrumb -->
+        <div class="pg-breadcrumb mb-8">
+            <a href="/index.html">Trang chủ</a>
+            <span>/</span>
+            <span>Tấm gương học tập</span>
+        </div>
+
+        <!-- Intro Section -->
+        <div class="text-center mb-16 pg-animate">
+            <h2 class="pg-section-title">Học Tập Và Làm Theo Bác</h2>
+            <div class="pg-section-line"></div>
+            <p
+                style="font-family: var(--pg-font-body); font-size: 20px; color: var(--pg-text-body); max-width: 700px; margin: 0 auto; line-height: 1.8;">
+                Cuộc đời Chủ tịch Hồ Chí Minh là một tấm gương sáng ngời về đạo đức cách mạng, về lối sống giản dị mà
+                vĩ đại. Mỗi phẩm chất của Người đều là bài học quý giá cho muôn đời.
+            </p>
+        </div>
+
+        <!-- Alternating Layout -->
+        <div class="space-y-16" id="tamguong-container">
+            <!-- Rendered by JS -->
+        </div>
+
+        <!-- Quote Section -->
+        <div class="mt-20 pg-animate">
+            <div class="rounded-lg overflow-hidden" style="background: var(--pg-brown-dark);">
+                <div class="p-12 md:p-16 text-center">
+                    <div style="font-size: 48px; color: var(--pg-gold); margin-bottom: 16px;">"</div>
+                    <blockquote
+                        style="font-family: var(--pg-font-title); font-size: clamp(20px, 2.5vw, 32px); color: var(--pg-cream); line-height: 1.6; max-width: 800px; margin: 0 auto; font-style: italic;">
+                        Cần, kiệm, liêm, chính, chí công vô tư — Đó là đạo đức cách mạng, đó là cái gốc của người
+                        cách mạng.
+                    </blockquote>
+                    <p class="mt-6"
+                        style="font-family: var(--pg-font-ui); font-size: 14px; color: var(--pg-gold); letter-spacing: 2px;">
+                        — HỒ CHÍ MINH —
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Back to Top -->
+    <button class="pg-back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('tamguong-container');
+
+            tamGuongData.forEach((item, idx) => {
+                const isReversed = idx % 2 !== 0;
+                const row = document.createElement('div');
+                row.className = 'pg-animate';
+                row.style.transitionDelay = `${idx * 0.1}s`;
+                row.innerHTML = `
+                    <div class="flex flex-col md:flex-row ${isReversed ? 'md:flex-row-reverse' : ''} gap-8 items-center">
+                        <!-- Image -->
+                        <div class="w-full md:w-1/2">
+                            <div class="relative overflow-hidden rounded-lg" style="height: 360px;">
+                                <img src="${item.hinhAnh}" alt="${item.tieuDe}" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
+                                <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 50%, rgba(44,24,16,0.4) 100%);"></div>
+                                <div class="absolute top-4 left-4 text-4xl">${item.icon}</div>
+                            </div>
+                        </div>
+                        <!-- Content -->
+                        <div class="w-full md:w-1/2">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span style="font-family: var(--pg-font-ui); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--pg-gold);">
+                                    Phẩm chất ${idx + 1}
+                                </span>
+                            </div>
+                            <h3 style="font-family: var(--pg-font-title); font-size: 28px; font-weight: 700; color: var(--pg-brown-dark); margin-bottom: 12px;">
+                                ${item.tieuDe}
+                            </h3>
+                            <p style="font-family: var(--pg-font-body); font-size: 18px; color: var(--pg-text-body); line-height: 1.8; margin-bottom: 16px;">
+                                ${item.moTa}
+                            </p>
+                            <div class="pg-card-detail" id="detail-tg-${item.id}" style="font-family: var(--pg-font-body); font-size: 17px; color: var(--pg-text-muted); line-height: 1.8;">
+                                ${item.chiTiet}
+                            </div>
+                            <button class="pg-card-btn mt-3" onclick="togglePgDetail('detail-tg-${item.id}', this)">
+                                Đọc thêm
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    ${idx < tamGuongData.length - 1 ? '<div class="flex justify-center mt-12"><div style="width:8px;height:8px;background:var(--pg-gold);transform:rotate(45deg);"></div></div>' : ''}
+                `;
+                container.appendChild(row);
+            });
+
+            setupScrollAnimations();
+            setupBackToTop();
+        });
+
+        function togglePgDetail(id, btn) {
+            const el = document.getElementById(id);
+            el.classList.toggle('show');
+            btn.classList.toggle('expanded');
+            btn.firstChild.textContent = el.classList.contains('show') ? 'Thu gọn ' : 'Đọc thêm ';
+        }
+
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.pg-animate').forEach(el => observer.observe(el));
+        }
+
+        function setupBackToTop() {
+            const btn = document.getElementById('backTop');
+            window.addEventListener('scroll', () => { btn.classList.toggle('show', window.scrollY > 400); });
+        }
+    </script>
+</body>
+
+</html>

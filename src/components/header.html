@@ -1,0 +1,79 @@
+<header class="fixed top-0 left-0 right-0 text-white p-2 bg-[#760308] overflow-hidden z-50">
+
+    <!-- hoa sen bên trái -->
+    <div
+        class="absolute left-0 top-0 h-full bg-size-[auto_100%]  w-100 bg-[url('/src/assets/img/hoa-sen-trai_rmbg.png')] bg-no-repeat bg-left pointer-events-none">
+    </div>
+
+    <!-- hoa sen bên phải -->
+    <div
+        class="absolute right-0 top-0 h-full bg-size-[auto_100%]  w-100 bg-[url('/src/assets/img/hoa-sen-phai_rmbg.png')] bg-no-repeat bg-right pointer-events-none">
+    </div>
+
+    <div class="container mx-auto flex items-center justify-between py-2 px-4 relative">
+        <!-- logo -->
+        <a href="/index.html" class="flex items-center">
+            <img src="/src/assets/img/quoc-huy.svg" alt="Quốc Huy" class="size-12 w-auto mr-2" />
+            <span class="font-bold text-[#F3AC90]">
+                <p class="text-lg">Chủ tịch</p>
+                <p class="text-2xl">Hồ Chí Minh</p>
+            </span>
+        </a>
+
+        <!-- navigation -->
+        <nav class="hidden md:flex space-x-5">
+            <a href="/index.html"
+                class="text-[#E1C0BD] font-bold text-xl hover:text-[#F3AC90] hover:underline transition-colors">Trang
+                Chủ</a>
+            <a href="/src/pages/cuoc-doi.html"
+                class="text-[#E1C0BD] font-bold text-xl hover:text-[#F3AC90] hover:underline transition-colors">Tiểu
+                sử</a>
+            <a href="/src/pages/tac-pham.html"
+                class="text-[#E1C0BD] font-bold text-xl hover:text-[#F3AC90] hover:underline transition-colors">Tác
+                phẩm</a>
+            <a href="/src/pages/tam-guong-hoc-tap.html"
+                class="text-[#E1C0BD] font-bold text-xl hover:text-[#F3AC90] hover:underline transition-colors">Tấm
+                gương</a>
+            <a href="/src/pages/khong-gian-van-hoa.html"
+                class="text-[#E1C0BD] font-bold text-xl hover:text-[#F3AC90] hover:underline transition-colors">Văn
+                hóa</a>
+            <a href="/src/pages/bao-tang.html"
+                class="text-[#E1C0BD] font-bold text-xl hover:text-[#F3AC90] hover:underline transition-colors">Bảo
+                tàng</a>
+            <a href="/src/pages/trien-lam.html"
+                class="text-[#E1C0BD] font-bold text-xl hover:text-[#F3AC90] hover:underline transition-colors">Triển
+                lãm</a>
+        </nav>
+
+        <!-- mobile menu button -->
+        <button class="md:hidden text-white" id="mobile-menu-btn"
+            onclick="document.getElementById('mobile-nav').classList.toggle('hidden')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav id="mobile-nav" class="hidden md:hidden px-4 pb-4">
+        <div class="flex flex-col space-y-2">
+            <a href="/index.html" class="text-[#E1C0BD] font-bold text-sm py-1 hover:text-[#F3AC90]">Trang Chủ</a>
+            <a href="/src/pages/cuoc-doi.html" class="text-[#E1C0BD] font-bold text-sm py-1 hover:text-[#F3AC90]">Tiểu
+                sử</a>
+            <a href="/src/pages/tac-pham.html" class="text-[#E1C0BD] font-bold text-sm py-1 hover:text-[#F3AC90]">Tác
+                phẩm</a>
+            <a href="/src/pages/tam-guong-hoc-tap.html"
+                class="text-[#E1C0BD] font-bold text-sm py-1 hover:text-[#F3AC90]">Tấm gương</a>
+            <a href="/src/pages/khong-gian-van-hoa.html"
+                class="text-[#E1C0BD] font-bold text-sm py-1 hover:text-[#F3AC90]">Văn hóa</a>
+            <a href="/src/pages/bao-tang.html" class="text-[#E1C0BD] font-bold text-sm py-1 hover:text-[#F3AC90]">Bảo
+                tàng</a>
+            <a href="/src/pages/trien-lam.html" class="text-[#E1C0BD] font-bold text-sm py-1 hover:text-[#F3AC90]">Triển
+                lãm</a>
+        </div>
+    </nav>
+
+</header>

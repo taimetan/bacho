@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tác Phẩm — Chủ tịch Hồ Chí Minh</title>
+    <meta name="description"
+        content="Những tác phẩm tiêu biểu của Chủ tịch Hồ Chí Minh — từ Bản án chế độ thực dân Pháp đến Di chúc thiêng liêng.">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/src/assets/css/style.css">
+    <link rel="stylesheet" href="/src/assets/css/pages.css">
+    <link rel="shortcut icon" href="/src/assets/img/quoc-huy.svg" type="image/x-icon">
+    <script src="/src/assets/js/main.js"></script>
+    <script src="/src/assets/js/pages-data.js"></script>
+</head>
+
+<body class="pg-page">
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <!-- ========== HERO BANNER ========== -->
+    <section class="pg-hero" style="margin-top: 60px;">
+        <div class="pg-hero-bg" style="background-image: url('https://tttctt.1cdn.vn/2025/08/30/anh-1(1).jpg');">
+        </div>
+        <div class="pg-hero-content">
+            <div class="pg-hero-label">Tác phẩm tiêu biểu</div>
+            <h1 class="pg-hero-title">Tác Phẩm Hồ Chí Minh</h1>
+            <p class="pg-hero-subtitle">
+                "Mỗi trang viết của Người đều mang hơi thở của tự do, đều thấm đẫm tình yêu dân tộc và nhân loại."
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <!-- Breadcrumb -->
+        <div class="pg-breadcrumb mb-8">
+            <a href="/index.html">Trang chủ</a>
+            <span>/</span>
+            <span>Tác phẩm</span>
+        </div>
+
+        <!-- Section Title -->
+        <h2 class="pg-section-title pg-animate">Những Tác Phẩm Bất Hủ</h2>
+        <div class="pg-section-line pg-animate"></div>
+
+        <!-- Featured Work -->
+        <div class="pg-featured pg-animate mb-12" id="featured-work">
+            <!-- Rendered by JS -->
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="pg-grid pg-grid-2" id="works-grid">
+            <!-- Rendered by JS -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Back to Top -->
+    <button class="pg-back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('works-grid');
+            const featured = document.getElementById('featured-work');
+
+            // Render Featured (first item = Tuyên ngôn Độc lập, id=3)
+            const feat = tacPhamData.find(t => t.id === 3);
+            if (feat) {
+                featured.innerHTML = `
+                    <div class="pg-featured-img">
+                        <img src="${feat.hinhAnh}" alt="${feat.tenTacPham}" loading="lazy" />
+                    </div>
+                    <div class="pg-featured-content">
+                        <div class="pg-featured-label">${feat.icon} ${feat.theLoai} · ${feat.namXuatBan}</div>
+                        <h3 class="pg-featured-title">${feat.tenTacPham}</h3>
+                        <p class="pg-featured-desc">${feat.moTa}</p>
+                        <blockquote class="mt-6 border-l-3 border-[#C5A55A] pl-4 italic opacity-80" style="font-family: var(--pg-font-body); font-size: 17px; line-height: 1.7;">
+                            "${feat.trichDan}"
+                        </blockquote>
+                    </div>
+                `;
+            }
+
+            // Render remaining cards
+            tacPhamData.filter(t => t.id !== 3).forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'pg-card pg-animate';
+                card.style.transitionDelay = `${idx * 0.1}s`;
+                card.innerHTML = `
+                    <div class="pg-card-img-wrapper">
+                        <img src="${item.hinhAnh}" alt="${item.tenTacPham}" loading="lazy" />
+                        <div class="pg-card-overlay"></div>
+                        <span class="pg-card-badge">${item.theLoai}</span>
+                        <span class="pg-card-year">${item.namXuatBan}</span>
+                    </div>
+                    <div class="pg-card-body">
+                        <h3 class="pg-card-title">${item.tenTacPham}</h3>
+                        <p class="pg-card-desc">${item.moTa}</p>
+                        <blockquote class="pg-card-quote">"${item.trichDan}"</blockquote>
+                        <div class="pg-card-detail" id="detail-tp-${item.id}">${item.chiTiet}</div>
+                        <button class="pg-card-btn" onclick="togglePgDetail('detail-tp-${item.id}', this)">
+                            Đọc thêm
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // Scroll animations
+            setupScrollAnimations();
+            setupBackToTop();
+        });
+
+        function togglePgDetail(id, btn) {
+            const el = document.getElementById(id);
+            el.classList.toggle('show');
+            btn.classList.toggle('expanded');
+            btn.firstChild.textContent = el.classList.contains('show') ? 'Thu gọn ' : 'Đọc thêm ';
+        }
+
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) e.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.pg-animate').forEach(el => observer.observe(el));
+        }
+
+        function setupBackToTop() {
+            const btn = document.getElementById('backTop');
+            window.addEventListener('scroll', () => {
+                btn.classList.toggle('show', window.scrollY > 400);
+            });
+        }
+    </script>
+</body>
+
+</html>
